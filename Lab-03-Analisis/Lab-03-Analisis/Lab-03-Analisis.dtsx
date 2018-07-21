@@ -11,8 +11,8 @@
   DTS:LocaleID="5130"
   DTS:ObjectName="Lab-03-Analisis"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{152BD160-BFF5-4D85-99FD-FFE29380D453}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{65122AE4-9CE7-429F-98B7-7ACA0F92F48A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,6 +28,15 @@
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{32EDA818-1411-4B3B-9C17-5B00C9318FA8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Bandera">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{880E8CB4-656F-46F7-8AAC-5EF09AA954C2}"
@@ -88,13 +97,41 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Data Flow Task"
+      DTS:refId="Package\El valor &quot;Verdadero&quot;"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{0ADBB9EE-9FE6-4988-8A96-DA5AEF3CAB35}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="El valor &quot;Verdadero&quot;"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{803BBF64-3874-4578-ABF1-8C435D82E6E3}"
+          SQLTask:SqlStatementSource="select NombreParametro, ValorParametro, FechaModificacion&#xA;from Parametros&#xA;where NombreParametro = 'NombreTabla';"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="NombreParametro"
+            SQLTask:DtsVariableName="User::NombreParametro" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="ValorParametro"
+            SQLTask:DtsVariableName="User::ValorParametro" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="FechaModificacion"
+            SQLTask:DtsVariableName="User::FechaModificacion" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\El valor no es &quot;Verdadero&quot;"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{336C5D85-FB3C-4A0C-814A-5C1A92D8B12B}"
+      DTS:DTSID="{3227D1C7-95DC-4D77-B7A5-84741FF11E18}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Task"
+      DTS:ObjectName="El valor no es &quot;Verdadero&quot;"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -103,13 +140,13 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Verificar Si es &quot;Verdadero&quot;"
+      DTS:refId="Package\Error por no encontrar la tabla"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{32162F37-F858-406B-944A-8E7A07C4EF96}"
+      DTS:DTSID="{90922316-EC53-4449-B768-6FA23F531928}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Verificar Si es &quot;Verdadero&quot;"
+      DTS:ObjectName="Error por no encontrar la tabla"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -117,26 +154,141 @@
           version="1" />
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\No se encontro el parametro &quot;NombreTabla&quot;"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B6034033-4606-4BEE-87C5-191C0032BF48}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="No se encontro el parametro &quot;NombreTabla&quot;"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\No se encontro el parametro &quot;TruncarTabla&quot;"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{34F0E808-F188-42BC-8A3C-917347B0C996}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="No se encontro el parametro &quot;TruncarTabla&quot;"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncar tabla"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{79AAFBFA-BCE8-46A9-A295-3560E82695A2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncar tabla"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{803BBF64-3874-4578-ABF1-8C435D82E6E3}"
+          SQLTask:SqlStatementSource="truncate table ?;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::ValorParametro"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Verificar si la tabla existe"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{97A21D96-7400-40FB-A04E-4F01BF871C53}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Verificar si la tabla existe"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{803BBF64-3874-4578-ABF1-8C435D82E6E3}"
+          SQLTask:SqlStatementSource="select *&#xA;from ?;"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::ValorParametro"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{DB137EAD-8204-45A7-A040-394B2C7BEF19}"
+      DTS:DTSID="{2770F795-F2D2-41E6-954E-421EF8B0A721}"
       DTS:From="Package\Buscar &quot;TruncarTabla&quot; en Parametros"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Verificar Si es &quot;Verdadero&quot;" />
+      DTS:To="Package\No se encontro el parametro &quot;TruncarTabla&quot;"
+      DTS:Value="1" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{7C2876A7-A7C3-4324-90CD-D7AEE9C58428}"
+      DTS:DTSID="{B6CFD459-78BE-4434-A6B9-8E71554565C6}"
       DTS:EvalOp="3"
       DTS:Expression="@[User::ValorParametro] == &quot;Verdadero&quot;"
-      DTS:From="Package\Verificar Si es &quot;Verdadero&quot;"
+      DTS:From="Package\Buscar &quot;TruncarTabla&quot; en Parametros"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
-      DTS:To="Package\Data Flow Task" />
+      DTS:To="Package\El valor &quot;Verdadero&quot;" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{05289F13-947A-4928-9508-82EFFB1F3CA9}"
+      DTS:From="Package\El valor &quot;Verdadero&quot;"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\No se encontro el parametro &quot;NombreTabla&quot;"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{1CB8CBAD-B3D5-4F12-90B7-8903A90FF44D}"
+      DTS:From="Package\El valor &quot;Verdadero&quot;"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Verificar si la tabla existe" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{14C03852-3561-4748-8840-45501AA94119}"
+      DTS:From="Package\Verificar si la tabla existe"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Truncar tabla" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{B5C7E457-DF30-4E19-A893-E5FE5497017B}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::ValorParametro] != &quot;Verdadero&quot;"
+      DTS:From="Package\Buscar &quot;TruncarTabla&quot; en Parametros"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\El valor no es &quot;Verdadero&quot;" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -149,41 +301,149 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="256,42"
           Id="Package\Buscar &quot;TruncarTabla&quot; en Parametros"
-          TopLeft="296,18" />
+          TopLeft="271,0" />
         <NodeLayout
-          Size="203,42"
-          Id="Package\Verificar Si es &quot;Verdadero&quot;"
-          TopLeft="119,105" />
+          Size="288,42"
+          Id="Package\No se encontro el parametro &quot;TruncarTabla&quot;"
+          TopLeft="549,73" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="424,60">
+          TopLeft="461,42">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-203.5,45"
+              EndConnector="232,31"
               Start="0,0"
-              End="-203.5,37.5">
+              End="232,23.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.5" />
+                    End="0,6.54639175257732" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.5"
-                    Point2="0,22.5"
-                    Point3="-4,22.5" />
+                    Point1="0,6.54639175257732"
+                    Point2="0,10.5463917525773"
+                    Point3="4,10.5463917525773" />
                   <mssgle:LineSegment
-                    End="-199.5,22.5" />
+                    End="228,10.5463917525773" />
                   <mssgle:CubicBezierSegment
-                    Point1="-199.5,22.5"
-                    Point2="-203.5,22.5"
-                    Point3="-203.5,26.5" />
+                    Point1="228,10.5463917525773"
+                    Point2="232,10.5463917525773"
+                    Point3="232,14.5463917525773" />
                   <mssgle:LineSegment
-                    End="-203.5,37.5" />
+                    End="232,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="100.75865234375,15.5463917525773,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="174,42"
+          Id="Package\El valor &quot;Verdadero&quot;"
+          TopLeft="70,74" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="337,42">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-180,32"
+              Start="0,0"
+              End="-180,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,6.88659793814433" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,6.88659793814433"
+                    Point2="0,10.8865979381443"
+                    Point3="-4,10.8865979381443" />
+                  <mssgle:LineSegment
+                    End="-176,10.8865979381443" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-176,10.8865979381443"
+                    Point2="-180,10.8865979381443"
+                    Point3="-180,14.8865979381443" />
+                  <mssgle:LineSegment
+                    End="-180,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-98,15.8865979381443,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="289,42"
+          Id="Package\No se encontro el parametro &quot;NombreTabla&quot;"
+          TopLeft="319,144" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="184.666666666667,116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="278.833333333333,28"
+              Start="0,0"
+              End="278.833333333333,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.35307517084282" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.35307517084282"
+                    Point2="0,11.3530751708428"
+                    Point3="4,11.3530751708428" />
+                  <mssgle:LineSegment
+                    End="274.833333333333,11.3530751708428" />
+                  <mssgle:CubicBezierSegment
+                    Point1="274.833333333333,11.3530751708428"
+                    Point2="278.833333333333,11.3530751708428"
+                    Point3="278.833333333333,15.3530751708428" />
+                  <mssgle:LineSegment
+                    End="278.833333333333,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="124.175319010417,16.3530751708428,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Verificar si la tabla existe"
+          TopLeft="38,154" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="132.666666666667,116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -193,42 +453,84 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="151,42"
-          Id="Package\Data Flow Task"
-          TopLeft="199,205" />
+          Size="142,42"
+          Id="Package\Truncar tabla"
+          TopLeft="30,242" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="220.5,147">
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="136,196">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="54,58"
+              EndConnector="-35,46"
               Start="0,0"
-              End="54,50.5">
+              End="-35,38.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25" />
+                    End="0,19" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25"
-                    Point2="0,29"
-                    Point3="4,29" />
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="-4,23" />
                   <mssgle:LineSegment
-                    End="50,29" />
+                    End="-31,23" />
                   <mssgle:CubicBezierSegment
-                    Point1="50,29"
-                    Point2="54,29"
-                    Point3="54,33" />
+                    Point1="-31,23"
+                    Point2="-35,23"
+                    Point3="-35,27" />
                   <mssgle:LineSegment
-                    End="54,50.5" />
+                    End="-35,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="222,42"
+          Id="Package\Error por no encontrar la tabla"
+          TopLeft="362,225" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\El valor no es &quot;Verdadero&quot;"
+          TopLeft="316,73" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="399,42">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.5,31"
+              Start="0,0"
+              End="18.5,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5"
+                    Point2="0,15.5"
+                    Point3="4,15.5" />
+                  <mssgle:LineSegment
+                    End="14.5,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.5,15.5"
+                    Point2="18.5,15.5"
+                    Point3="18.5,19.5" />
+                  <mssgle:LineSegment
+                    End="18.5,23.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="19,34,16,16"
+              BoundingBox="1.25,20.5,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
